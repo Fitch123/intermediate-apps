@@ -23,8 +23,4 @@ const questions = [
 
 
 
-
-
-
-
 nextBtn.addEventListener("click", () => console.log("yessurs"));
