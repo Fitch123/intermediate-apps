@@ -1,5 +1,6 @@
 const nextBtn = document.getElementById("nextBtn");
-
+const questionText = document.getElementById("question");
+const optionsDiv = document.getElementById("options")
 
 const questions = [
     {
@@ -19,8 +20,29 @@ const questions = [
     }
 ];
 
+let current = 0;
 
+function display() {
+    optionsDiv.innerHTML = "";
 
+    questionText.innerText = questions[current].question;
 
+    const newOptions = questions[current].options;
+    newOptions.forEach(opt => {
 
-nextBtn.addEventListener("click", () => console.log("yessurs"));
+        const newBtn = document.createElement("button");
+        optionsDiv.appendChild(newBtn);
+        newBtn.textContent = opt;
+        newBtn.addEventListener("click", () => {
+            console.log("clicked");
+        });
+    });
+}
+
+nextBtn.addEventListener("click", () => {
+    if (current < questions.length) {
+        display();
+        current++;
+    }
+    //current = (current + 1) % questions.length;
+});
