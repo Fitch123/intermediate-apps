@@ -85,7 +85,6 @@ function display() {
 function helper() {
      if (current < questions.length) {
         display();
-        current++;
     } else if (current === questions.length){
         quizContainer.style.display = "none";
         finalScore.style.display = "block";
@@ -98,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 nextBtn.addEventListener("click", () => {
+    current++
     helper();
 });
 
